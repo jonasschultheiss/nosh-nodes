@@ -4,8 +4,9 @@
 import {
   bigint,
   boolean,
-  float,
+  int,
   mysqlTableCreator,
+  text,
   timestamp,
 } from "drizzle-orm/mysql-core";
 
@@ -19,21 +20,30 @@ export const mysqlTable = mysqlTableCreator((name) => `nosh-nodes_${name}`);
 
 export const subjects = mysqlTable("subjects", {
   id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
-  // name: varchar("name", { length: 256 }),
-  // createdAt: timestamp("created_at")
-  //   .default(sql`CURRENT_TIMESTAMP`)
-  //   .notNull(),
-  art: float("art"),
-  sports: float("sports"),
-  politics: float("politics"),
-  books: float("books"),
-  multimedia: float("multimedia"),
-  technology: float("technology"),
-  fashion: float("fashion"),
-  outdoorActivities: float("outdoorActivities"),
+  userId: text("userId").notNull().primaryKey(),
+  art: int("art").default(1).notNull(),
+  sports: int("sports").default(1).notNull(),
+  politics: int("politics").default(1).notNull(),
+  books: int("books").default(1).notNull(),
+  multimedia: int("multimedia").default(1).notNull(),
+  technology: int("technology").default(1).notNull(),
+  fashion: int("fashion").default(1).notNull(),
+  outdoorActivities: int("outdoorActivities").default(1).notNull(),
 
-  hasPet: boolean("hasPet"),
-  hasChildren: boolean("hasChildren"),
+  hasPet: boolean("hasPet").default(false).notNull(),
+  hasChildren: boolean("hasChildren").default(false).notNull(),
+
+  updatedAt: timestamp("updatedAt").onUpdateNow(),
+});
+
+export const mood = mysqlTable("mood", {
+  id: bigint("id", { mode: "bigint" }).primaryKey().autoincrement(),
+  userId: text("userId"),
+  moodLevel: int("moodLevel").default(1).notNull(),
+  socialBatteryLevel: int("socialBatteryLevel").default(1).notNull(),
+  stressLevel: int("stressLevel").default(1).notNull(),
+  integrationLevel: int("integrationLevel").default(1).notNull(),
+  ready: boolean("hasPet").default(false).notNull(),
 
   updatedAt: timestamp("updatedAt").onUpdateNow(),
 });
