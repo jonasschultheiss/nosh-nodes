@@ -1,0 +1,130 @@
+[
+    {
+        "name": "id",
+        "type": "Row Number"
+    },
+    {
+        "name": "last_name",
+        "type": "Last Name"
+    },
+    {
+        "name": "first_name",
+        "type": "First Name"
+    },
+    {
+        "name": "gender",
+        "type": "Gender"
+    },
+    {
+        "name": "team_id",
+        "type": "Number",
+        "min": 0,
+        "max": 10,
+        "decimals": 0
+    },
+    {
+        "name": "squad_id",
+        "type": "Number",
+        "min": 0,
+        "max": 10,
+        "decimals": 0
+    },
+    {
+        "name": "experience",
+        "type": "Number",
+        "min": 0,
+        "max": 30,
+        "decimals": 0
+    },
+    {
+        "name": "art",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "sports",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "politics",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "books",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "movies",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "technology",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "fashion",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "outdoor activities",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "pets",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "family",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "mood",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "battery",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "stress",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    }
+]
