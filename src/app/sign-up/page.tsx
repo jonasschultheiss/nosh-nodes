@@ -1,10 +1,11 @@
 "use client";
 
 import { useUser } from "@clerk/nextjs";
-import { Input } from "@components/input";
 import { useState, type ReactElement } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { api } from "~/trpc/react";
 import { Form } from "../_components/form";
+import { Input } from "../_components/input";
 
 export interface IPersonalInput {
   username: string;
@@ -13,15 +14,10 @@ export interface IPersonalInput {
   yearsAtWork: number;
 }
 
-interface IInputErrorIconProps {
-  onSubmitServerSide: (input: IPersonalInput) => void;
-}
-
-export default function SignUpForm({
-  onSubmitServerSide,
-}: IInputErrorIconProps): ReactElement {
-  const [loading] = useState<boolean>(false);
+export default function SignUpForm(): ReactElement {
+  const [loading, setLoading] = useState<boolean>(false);
   const { user } = useUser();
+  const userMutation = api.users.update.useMutation();
   const defaultValues: IPersonalInput = {
     username: user?.username ?? "",
     firstName: user?.firstName ?? "",
@@ -34,29 +30,29 @@ export default function SignUpForm({
     reset,
     register,
     formState: { errors },
-    watch,
   } = useForm<IPersonalInput>({
     defaultValues,
   });
 
   const onSubmit: SubmitHandler<IPersonalInput> = async (data, event) => {
+    console.log(
+      "🚀 ~ file: page.tsx:38 ~ constonSubmit:SubmitHandler<IPersonalInput>= ~ data:",
+      data,
+    );
+    setLoading(true);
     event?.preventDefault();
     if (!user) {
       return;
     }
 
-    const { yearsAtWork, ...rest } = data;
-    await user?.update({
-      ...rest,
-      unsafeMetadata: { yearsAtWork },
-    });
-    onSubmitServerSide(data);
+    await userMutation.mutateAsync(data);
+    setLoading(false);
   };
 
   return (
     <Form
       resetButton
-      submitText="Update and save text"
+      submitText="Finalize account"
       handleSubmit={handleSubmit}
       reset={reset}
       onSubmit={onSubmit}

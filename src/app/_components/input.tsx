@@ -9,6 +9,7 @@ import {
 } from "react-hook-form";
 import { InputErrorIcon } from "./input-error-icon";
 import { InputErrorMessage } from "./input-error-message";
+import { Typography } from "./ui/typography";
 
 interface IInputProps<T extends FieldValues>
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -29,21 +30,22 @@ export function Input<T extends FieldValues>({
   errors,
   ...rest
 }: IInputProps<T>): React.JSX.Element {
-  const hasError = errors! && Object.keys(errors).length > 1;
+  const hasError =
+    !!errors &&
+    Object.keys(errors).length >= 1 &&
+    Object.keys(errors).includes(id);
 
   return (
     <div className={`col-span-full ${className}`}>
       <div className="flex justify-between">
-        <label
-          htmlFor={id}
-          className="block text-sm font-medium leading-6 text-sla"
-        >
+        <Typography variant="small" component="label" htmlFor={id}>
           {label}
-        </label>
+        </Typography>
+
         {rest.required && (
-          <p className="text-sm leading-6 text-gray-500" id="email-optional">
+          <Typography variant="muted" component="p">
             Required<span className="text-red-600"> *</span>
-          </p>
+          </Typography>
         )}
       </div>
       <div className="relative mt-2 rounded-md shadow-sm">
@@ -51,7 +53,7 @@ export function Input<T extends FieldValues>({
           {...register}
           {...rest}
           disabled={disabled}
-          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-gray-300 sm:text-sm sm:leading-6"
+          className=" block w-full rounded-md border-0 bg-background px-2 py-1.5 text-foreground shadow-sm ring-1 ring-inset ring-foreground/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-gray-500 sm:text-sm sm:leading-6"
         />
         <InputErrorIcon hasError={hasError} />
       </div>

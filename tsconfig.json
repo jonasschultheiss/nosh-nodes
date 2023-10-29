@@ -18,10 +18,7 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/app/_components/*"],
-      "@styles/*": ["src/styles/*"],
-      "@trpc/*": ["src/trpc/*"],
-      "@lib/*": ["src/lib/*"]
+      "~/*": ["./src/*"]
     },
     "plugins": [{ "name": "next" }]
   },

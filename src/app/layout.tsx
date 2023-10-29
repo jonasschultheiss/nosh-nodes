@@ -3,10 +3,9 @@ import "@styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter as FontSans } from "next/font/google";
 import { headers } from "next/headers";
-
-import { BackgroundWrapper } from "@components/background-wrapper";
-import { cn } from "@lib/utils";
-import { TRPCReactProvider } from "@trpc/react";
+import { TRPCReactProvider } from "~/trpc/react";
+import { BackgroundWrapper } from "./_components/background-wrapper";
+import { cn } from "./utils/util";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -29,7 +28,7 @@ export default function RootLayout({
       <html lang="en">
         <body
           className={cn(
-            "bg-background min-h-screen font-sans antialiased",
+            "min-h-screen bg-background font-sans antialiased",
             fontSans.variable,
           )}
         >

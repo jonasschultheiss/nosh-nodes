@@ -9,7 +9,14 @@ export default authMiddleware({
     if (!auth.userId && !auth.isPublicRoute) {
       redirectToSignIn({ returnBackUrl: req.url });
     }
-    if (auth.userId && !auth.orgId && req.nextUrl.pathname !== "/sign-up") {
+    if (
+      auth.userId &&
+      !auth.user?.firstName &&
+      !auth.user?.lastName &&
+      !auth.user?.username &&
+      !auth.user?.publicMetadata.yearsAtWork &&
+      req.nextUrl.pathname !== "/sign-up"
+    ) {
       const signUp = new URL("/sign-up", req.url);
       return NextResponse.redirect(signUp);
     }

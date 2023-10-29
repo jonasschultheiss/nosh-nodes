@@ -9,14 +9,28 @@ export const BackgroundWrapper: React.FC<WrapperProps> = ({
   children,
 }): JSX.Element => {
   return (
-    <div className="max-w-xs p-4 pt-16">
+    <div>
       <Image
+        priority
         src="/pattern.png"
         alt="A background pattern"
         fill
-        className="absolute left-0 right-0 top-0 -z-10"
+        objectFit="contain"
+        className="absolute left-0 right-0 top-0 -z-10 w-full"
       />
-      {children}
+      <div className="relative p-4 px-8 pt-16">{children}</div>
     </div>
   );
 };
+// object-fit: contain;
+// object-fit: cover;
+// object-fit: fill;
+// object-fit: none;
+// object-fit: scale-down;
+
+// /* Global values */
+// object-fit: inherit;
+// object-fit: initial;
+// object-fit: revert;
+// object-fit: revert-layer;
+// object-fit: unset;

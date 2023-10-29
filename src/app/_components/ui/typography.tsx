@@ -53,16 +53,16 @@ export const Typography: FC<TypographyProperties> = (properties) => {
     variant = "h1",
     component = "span",
     text,
-    className,htmlFor,
+    className,
+    htmlFor,
     children,
   } = properties;
   const TextWrapper = component;
 
   return (
-    <TextWrapper htmlFor={htmlFor}
-      className={`${variant ? variant : "h1"}${
-        className ? " " + className : ""
-      }`}
+    <TextWrapper
+      htmlFor={htmlFor}
+      className={`${variant ?? "h1"}${className ? " " + className : ""}`}
     >
       {children ?? text}
     </TextWrapper>

@@ -36,8 +36,8 @@ export function Form<T extends FieldValues>({
   loading,
 }: FormProps<T>): JSX.Element {
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="space-y-12">{children}</div>
+    <form onSubmit={handleSubmit(onSubmit)} className="block w-full">
+      <div className="space-y-6">{children}</div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
         {resetButton && (
