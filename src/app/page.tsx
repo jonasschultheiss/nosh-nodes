@@ -6,13 +6,6 @@ export default function Home() {
   return (
     <main>
       <Image
-        src="/pattern.png"
-        alt="A background pattern"
-        fill
-        className="absolute left-0 right-0 top-0 -z-10"
-      />
-
-      <Image
         src="/initial.png"
         alt="A background pattern"
         width={298}
