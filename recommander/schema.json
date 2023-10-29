@@ -105,5 +105,26 @@
         "min": 0,
         "max": 5,
         "decimals": 0
+    },
+    {
+        "name": "mood",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "battery",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
+    },
+    {
+        "name": "stress",
+        "type": "Number",
+        "min": 0,
+        "max": 5,
+        "decimals": 0
     }
 ]
